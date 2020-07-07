@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+# Deploy
+
+## Required environment variables
+
+List of required ENV variables:
+* `DATABASE_PASSWORD`
+* `DATABASE_PASSWORD` **(production)**
