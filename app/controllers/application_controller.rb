@@ -14,6 +14,7 @@ class ApplicationController < ActionController::API
       response.headers['Access-Control-Allow-Origin'] = '*'
       response.headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, PATCH, DELETE, OPTIONS'
       response.headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept'
+      response.headers['Access-Control-Expose-Headers'] = 'Location'
       response.headers['Access-Control-Max-Age'] = '1728000'
     end
 end
