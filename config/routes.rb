@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  match '*path', to: 'application#cors_preflight_check', via: %i[options]
+
   get '/projects', to: 'projects#index', as: 'projects'
   post '/projects', to: 'projects#create'
 
