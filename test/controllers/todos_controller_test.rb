@@ -16,6 +16,7 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
            as: :json
     end
 
+    assert_equal 'application/json; charset=utf-8', @response.headers['Content-Type'].downcase
     assert @response.headers['Location'].match?(/^\/todos\/\d+$/)
     assert @response.body.empty?
     assert_response :created

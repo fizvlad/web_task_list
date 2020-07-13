@@ -2,7 +2,7 @@ class TodosController < ApplicationController
   def create
     todo = Todo.new(todo_params)
     if todo.save
-      render plain: '', status: :created, location: "/todos/#{todo.id}"
+      render json: '', status: :created, location: "/todos/#{todo.id}"
     else
       render plain: todo.errors.full_messages.join('; '), status: :unprocessable_entity
     end

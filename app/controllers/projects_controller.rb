@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   def create
     project = Project.new(project_params)
     if project.save
-      render plain: '', status: :created, location: "/projects/#{project.id}"
+      render json: '', status: :created, location: "/projects/#{project.id}"
     else
       render plain: project.errors.full_messages.join('; '), status: :unprocessable_entity
     end
@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
     Project.all.to_json(
       include: {
         todos: {
-          except: %i[project_id created_at updated_at]
+          except: %i[created_at updated_at]
         }
       },
       except: %i[created_at updated_at]
