@@ -21,6 +21,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
       post projects_url, params: { title: 'Тестирование' }, as: :json
     end
 
+    assert_equal 'application/json; charset=utf-8', @response.headers['Content-Type'].downcase
     assert @response.headers['Location'].match?(/^\/projects\/\d+$/)
     assert @response.body.empty?
     assert_response :created
